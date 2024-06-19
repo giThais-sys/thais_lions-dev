@@ -8,7 +8,7 @@ pintura = {
 
 }
       console.log(`a minha pintura favorita é ${pintura.nomePintura}, feita por ${pintura.nomePintor}, em ${pintura.ano}, e ela significa${pintura.significado}`)
-
+let ano
 
 
 
