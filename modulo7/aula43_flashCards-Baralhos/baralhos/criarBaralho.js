@@ -1,10 +1,10 @@
-let {baralhos, flashcards}= require ('./app.js')
-function criarBaralho(baralhos, id, titulo, baralho){
+let {baralhos}= require ('../app.js')
+function criarBaralho(id,baralhos,titulo, baralho ){
 baralhos.id = baralhos.length +1
-  criarBaralho= ({titulo, id})
-  baralhos.push(baralho)
- console.log ('baralho criado com sucesso!')
-
+baralhos= ({id, titulo})
+baralhos.push(baralho)
+console.log ('baralho criado com sucesso!')
+            
 }
 module.exports= criarBaralho
 
