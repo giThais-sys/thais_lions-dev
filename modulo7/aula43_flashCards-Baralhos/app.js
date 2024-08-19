@@ -1,22 +1,23 @@
 const prompt= require ('prompt-sync') ()
 const criarBaralho= require ('./baralhos/criarBaralho')
 const listarBaralho = require ('./baralhos/listarBaralho')
-const editarBaralho= require ('./baralhos/ editarBaralho')
+const editarBaralho= require ('./baralhos/editarbaralho')
 const removerBaralho= require ('./baralhos/removerBaralho')
 const criarFlashCard= require ('./flashcards/criarFlashCards')
-const listaFlashCard= require ('./flashcards/listarFlashCard')
-const listarFlashCardsPorBaralhoId= require ('./flashcards/listarFlashCardsPorBaralhoId')
+const listaFlashCard= require ('./flashcards/listarFlashCards')
+const listarFlashCardsPorBaralhoId = require ('./flashcards/listarFlashCardsPorBaralhoId')
 const findFlashCardIndexById= require ('./flashcards/findFlashCardIndexById')
-const buscarFlashCardsPorBaralho= require ('./flashcards/buscarFlashCardsPorBaralho')
 const buscarFlashCardsPorPergunta= require ('./flashcards/buscarFlashCardsPorPergunta')
 const editarFlashCard= require ('./flashcards/editarFlashCards')
 const removerFlashCard= require ('./flashcards/removerFlashCards')
+const { baralhos,flashcards } = require('./index')
  
 exibirMenuBaralhos()
 exibirMenuFlashCards()
 
 
 function exibirMenuBaralhos () {
+let jaExisteUmBaralhoComEsseTitulo
 console.log(`
 Menu:
 
@@ -31,8 +32,9 @@ let menuBaralhos= prompt ('digite a sua escolha:')
 switch (menuBaralhos) {
  case '1':
     let titulo= prompt ('digite o titulo do baralho a ser inserido:')
-    if (jaExisteUmBaralhoComEsseTitulo) {
-    throw new Error('Já existe um baralho com esse título')
+    criarBaralho();
+    if (jaExisteUmBaralhoComEsseTitulo== true) {
+    console.log('Já existe um baralho com esse título')
     } else { 
         console.log('baralho inserido com sucesso!')
     }
@@ -43,12 +45,11 @@ switch (menuBaralhos) {
     exibirMenuBaralhos()
     break
  case '3':
-    editarBaralho()
     listarBaralho()
-    index= parseInt(prompt('digite o baralho a ser cadastrado:'))
-  const novoId = prompt ('digite o novo id a ser cadastrado:')
-  const novoTitulo= prompt ('digite a novo titulo a ser cadastrado:')
-    editarBaralho(index, baralho,novoId, novoTitulo)
+    entrada= parseInt(prompt('digite o baralho a ser cadastrado:'))
+  let novoId = prompt ('digite o novo id a ser cadastrado:')
+  let novoTitulo= prompt ('digite a novo titulo a ser cadastrado:')
+    editarBaralho(entrada, { novoId, novoTitulo })
     exibirMenuBaralhos()
     break
  case '4':
@@ -110,7 +111,9 @@ case '4':
     exibirMenuFlashCards()
     break
 case '5':
-    buscarFlashCardsPorBaralho()   
+    listarBaralho()
+    let procurarPorBaralhos= prompt('digite o id do baralho que foi inserido:')
+    listarFlashCardsPorBaralhoId(procurarPorBaralhos)   
     exibirMenuFlashCards() 
     break
 case '6':

@@ -1,6 +1,6 @@
-let {baralhos}= require ('../app.js')
-function listarBaralho (baralhos){
-baralhos.foreach (baralhos=>{
+let {baralhos}= require ('../index')
+function listarBaralho (){
+baralhos.forEach (baralhos=>{
 console.log (`titulo:${baralhos.titulo}, id: ${baralhos.id}`)
     
 })

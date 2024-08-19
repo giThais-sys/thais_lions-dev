@@ -1,4 +1,4 @@
-let baralho= [
+let baralhos= [
     {titulo: 'adivinhe a cor', id: 1},
     {titulo: 'geometria' , id: 2}
 ]
@@ -8,3 +8,4 @@ let flashcards=[
 {id: 2, pergunta: 'quantos lados tem um quadrilátero?', resposta: 'um quadrilátero tem quatro lados, pois quadri é igual a quatro e látero é igual a lados', idBaralho:2}
 
 ]
+module.exports = {baralhos,flashcards}

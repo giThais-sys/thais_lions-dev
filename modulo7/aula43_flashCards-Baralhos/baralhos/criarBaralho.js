@@ -1,7 +1,7 @@
-let {baralhos}= require ('../app.js')
-function criarBaralho(id,baralhos,titulo, baralho ){
+let {baralhos}= require ('../index')
+function criarBaralho(id,titulo, baralho ){
 baralhos.id = baralhos.length +1
-baralhos= ({id, titulo})
+baralho= ({id, titulo})
 baralhos.push(baralho)
 console.log ('baralho criado com sucesso!')
             
